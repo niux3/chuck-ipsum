@@ -1,0 +1,6 @@
+CREATE TABLE posts (
+  id INTEGER AUTO_INCREMENT PRIMARY KEY ,
+  content text NOT NULL
+) ;
+
+
