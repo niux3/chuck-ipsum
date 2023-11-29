@@ -1,6 +1,6 @@
 <?php
-    require_once './db/Mysql.php';
-    require_once './db/Sqlite.php';
+    require_once '../backend/db/Mysql.php';
+    require_once '../backend/db/Sqlite.php';
 
     class FactoryDB{
         private static $_instance = null;

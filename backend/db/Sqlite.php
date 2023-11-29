@@ -1,5 +1,5 @@
 <?php
-    require_once './db/DB.php';
+    require_once '../backend/db/DB.php';
 
     class Sqlite extends DB{
         public function __construct($params){
