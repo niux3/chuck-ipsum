@@ -1,27 +1,48 @@
 <script>
-    let lenSentence = 0
+    let lenSentenceMin = 0
+    let lenSentenceMax = 0
     let lenParagraph = 0
+
+    let onChangeSentenceMin = e =>{
+        let val = parseInt(e.target.value, 10)
+        if(val >= lenSentenceMax){
+            lenSentenceMax = val < 100? val + 1 : 100
+        }
+    }
+    let onChangeSentenceMax = e =>{
+        let val = parseInt(e.target.value, 10)
+        if(val <= lenSentenceMin){
+            lenSentenceMin = val > 0 ? val - 1 : 0
+        }
+    }
 </script>
 <form>
     <fieldset class="fieldset">
         <legend>chuck ipsum</legend>
         <div class="grid-x grid-padding-x">
-            <div class="cell medium-4">
+            <div class="cell medium-2">
                 <label>
-                    <span>n° phrase</span>
-                    <input type="range" min="0" max="100" bind:value={lenSentence}>
-                    <input type="number" bind:value={lenSentence} name="sentence">
+                    <span>phrase min.</span>
+                    <input tabindex="0" type="range" min="0" max="100" bind:value={lenSentenceMin} on:change={onChangeSentenceMin}>
+                    <input tabindex="1" type="number" bind:value={lenSentenceMin} name="sentence_min" on:input={onChangeSentenceMin}>
+                </label>
+            </div>
+            <div class="cell medium-2">
+                <label>
+                    <span>phrase max.</span>
+                    <input tabindex="0" type="range" min="0" max="100" bind:value={lenSentenceMax} on:change={onChangeSentenceMax}>
+                    <input tabindex="1" type="number" bind:value={lenSentenceMax} name="sentence_max" on:input={onChangeSentenceMax}>
                 </label>
             </div>
             <div class="cell medium-4">
                 <label>
-                    <span>n° paragraphe</span>
-                    <input type="range" min="0" max="100" bind:value={lenParagraph}>
-                    <input type="number" bind:value={lenParagraph} name="paragraphe">
+                    <span>nbe paragraphe</span>
+                    <input tabindex="0" type="range" min="0" max="100" bind:value={lenParagraph}>
+                    <input tabindex="1" type="number" bind:value={lenParagraph} name="paragraph">
                 </label>
             </div>
             <div class="cell medium-4">
-                <button type="submit" class="button expanded">envoyer</button>
+                <button tabindex="1" type="submit" class="button expanded">envoyer</button>
             </div>
         </div>
     </fieldset>
