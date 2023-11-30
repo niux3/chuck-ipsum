@@ -9,7 +9,7 @@ def index():
     ctx = {"rows": ''}
     fields = ['sentence_min', 'sentence_max', 'paragraph']
     min, max, paragraph = fields
-    if all([True if int(v) > 0 and k in fields else False for k, v in request.args.items()]):
+    if len(request.args) > 0 and all([True if int(v) > 0 and k in fields else False for k, v in request.args.items()]):
         results = []
         min = int(request.args.get(min))
         max = int(request.args.get(max))
