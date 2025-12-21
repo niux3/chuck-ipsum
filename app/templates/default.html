@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/prototype.css' )}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/rtl.css' )}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bundle.css' )}}">
-
 	<script defer src="{{ url_for('static', filename='js/bundle.js') }}"></script>
 </head>
 
@@ -20,5 +19,5 @@
         <div id="form"></div>
         <div>{% block content %}{% endblock %}</div>
     </main>
-</body>
+</body >
 </html>
