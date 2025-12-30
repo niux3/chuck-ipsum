@@ -5,7 +5,6 @@
   let lenParagraph = 0;
 
   onMount(() => {
-    console.log(window.location.search);
     if (window.location.search !== "") {
       const urlParams = new URLSearchParams(window.location.search);
       lenSentenceMin = urlParams.get("sentence_min");
