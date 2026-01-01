@@ -3,15 +3,18 @@ root = true
 [*]
 indent_style = space
 trim_trailing_whitespace = true
-insert_final_newline = true
+insert_final_newline = false
 
-[*.py]
+[*.php]
 indent_size = 4
 
-[*.js]
+[*.{js,svelte}]
 indent_size = 4
 
-[*.{scss,css,html}]
+[*.html]
+indent_size = 2
+
+[*.{scss,css}]
 indent_size = 2
 
 [package.json]
