@@ -15,11 +15,12 @@ let html = $state(false)
 let result = $state(null)
 let loading = $state(false)
 
+let base_url = window.location.host.includes('localhost') ? 'http://localhost:5000' : 'https://rb-webstudio.go.yj.fr/chuck-norris-ipsum'
 
 const fetchData = async () => {
     loading = true
     try {
-        const url = `http://localhost:5000/api/?sentence_min=${sentenceMin}&sentence_max=${sentenceMax}&paragraph=${paragraph}&html_text=${html ? 1 : 0}`
+        const url = `${base_url}/api/?sentence_min=${sentenceMin}&sentence_max=${sentenceMax}&paragraph=${paragraph}&html_text=${html ? 1 : 0}`
         const response = await fetch(url)
         const data = await response.json()
         result = data // On met à jour la rune de résultat

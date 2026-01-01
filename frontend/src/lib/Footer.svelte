@@ -37,7 +37,7 @@ const ctx = {
         </nav>
         <div class="text-center">
             <p class="title">Chuck Norris <span>ipsum</span></p>
-            <p class="copy"><a href="" target="_blank">RB webstudio</a> &copy; 2026</p>
+            <p class="copy"><a href="https://rb-webstudio.go.yj.fr/" target="_blank">RB webstudio</a> &copy; 2026</p>
         </div>
     </div>
 </footer>

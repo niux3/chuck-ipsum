@@ -39,7 +39,7 @@ html{
 
         h1{
           color: var(--color-e);
-          margin: 0;:width: 0;
+          margin: 0;
           font-size: 3.2rem;
 
           &:before{
@@ -229,96 +229,42 @@ html{
         }
       }
     }
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: color-mix(in srgb, var(--color-i), transparent 30%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  backdrop-filter: blur(2px);
-  padding: 20px; /* Sécurité pour les petits écrans */
-
-  .modal-content {
-    background: white;
-    padding: 0; /* On déplace le padding à l'intérieur pour le scroll */
-    border-radius: 15px;
-    box-shadow: 0 10px 25px color-mix(in srgb, var(--color-i), transparent 70%);
-    width: 90%;
-    max-width: 500px;
-
-    /* FIX HAUTEUR */
-    max-height: 90vh;
-    display: flex;
-    flex-direction: column;
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid color-mix(in srgb, var(--color-i), transparent 85%);
-      padding: 1.5rem 2rem; /* Padding ici */
-      flex-shrink: 0; /* Empêche le header de s'écraser */
-
-      h2 { margin: 0; }
-
-      .close-btn {
-        background: none;
-        border: none;
-        font-size: 2rem;
-        cursor: pointer;
-        line-height: 1;
-      }
-    }
-
-    .body {
-      padding: 1rem 2rem 2rem; /* Padding ici */
-      overflow-y: auto; /* Active le scroll interne */
-      scrollbar-width: thin; /* Pour Firefox */
-
-      /* Optionnel : design de la scrollbar pour Chrome/Edge */
-      &::-webkit-scrollbar {
-        width: 6px;
-      }
-      &::-webkit-scrollbar-thumb {
-        background: color-mix(in srgb, var(--color-i), transparent 80%);
-        border-radius: 10px;
-      }
-    }
-  }
-}
-/*
     .backdrop {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: color-mix(in srgb, var(--color-i), transparent 30%);;
+      background: color-mix(in srgb, var(--color-i), transparent 30%);
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 1000;
       backdrop-filter: blur(2px);
+      padding: 20px; /* Sécurité pour les petits écrans */
 
       .modal-content {
         background: white;
-        padding: 2rem;
+        padding: 0; /* On déplace le padding à l'intérieur pour le scroll */
         border-radius: 15px;
         box-shadow: 0 10px 25px color-mix(in srgb, var(--color-i), transparent 70%);
         width: 90%;
         max-width: 500px;
+
+        /* FIX HAUTEUR */
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+
         .header {
           display: flex;
           justify-content: space-between;
           align-items: center;
           border-bottom: 1px solid color-mix(in srgb, var(--color-i), transparent 85%);
-          padding-bottom: 1rem;
+          padding: 1.5rem 2rem; /* Padding ici */
+          flex-shrink: 0; /* Empêche le header de s'écraser */
 
+          h2 { margin: 0; }
 
           .close-btn {
             background: none;
@@ -328,9 +274,23 @@ html{
             line-height: 1;
           }
         }
+
+        .body {
+          padding: 1rem 2rem 2rem; /* Padding ici */
+          overflow-y: auto; /* Active le scroll interne */
+          scrollbar-width: thin; /* Pour Firefox */
+
+          /* Optionnel : design de la scrollbar pour Chrome/Edge */
+          &::-webkit-scrollbar {
+            width: 6px;
+          }
+          &::-webkit-scrollbar-thumb {
+            background: color-mix(in srgb, var(--color-i), transparent 80%);
+            border-radius: 10px;
+          }
+        }
       }
     }
-    */
 
     pre {
       white-space: pre-wrap;
