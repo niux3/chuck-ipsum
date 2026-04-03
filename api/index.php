@@ -63,10 +63,13 @@
         try{
             $db = FactoryDB::initialize($params_db);
 
+            $sql = "SELECT COUNT(*) as nb FROM posts";
+            $max_rows_in_db = current($db->query($sql)->fetch())->nb;
+
             for($i = 0; $i < $paragraph; $i++){
                 $rows = [];
                 $limit_params = random_int($min, $max);
-                $offset_params = random_int(0, 9674 - $max);
+                $offset_params = random_int(0, $max_rows_in_db - $max);
                 $sql = "SELECT content FROM posts LIMIT :limit OFFSET :offset";
                 $args = [
                     'limit' => $limit_params,
