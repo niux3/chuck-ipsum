@@ -17,7 +17,7 @@
     }
 
     $required_fields = ['sentence_min', 'sentence_max', 'paragraph'];
-    $optional_fields = ['html_text', 'dev', 'text']; // Ajoute 'dev' ici aussi pour tes tests
+    $optional_fields = ['html_text', 'dev', 'text']; // Ajoute 'dev' ici aussi pour tests
     $allowed_fields = array_merge($required_fields, $optional_fields);
 
     $is_valid = true;
