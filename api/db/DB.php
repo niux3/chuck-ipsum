@@ -41,7 +41,7 @@
                             $this->query->bindValue($key + 1, $value, $paramType);
                         }
                     }
-                    $this->query->execute($params);
+                    $this->query->execute();
                 }else{
                     $this->query = $this->pdo->query($sql);
                 }
