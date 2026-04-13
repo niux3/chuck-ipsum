@@ -1,8 +1,8 @@
 <?php
-    require_once './db/DB.php';
-    require_once './db/Mysql.php';
-    require_once './db/Sqlite.php';
-    require_once './db/Postgresql.php';
+    namespace App\Db;
+
+    use Exception;
+
 
     class FactoryDB{
         private static $_instance = null;
@@ -18,11 +18,14 @@
                     throw new Exception("Driver not allowed: {$params['driver']}", 500);
                 }
 
-                if (!class_exists($params['driver'])) {
-                    throw new Exception("Could not find the driver: {$params['driver']}", 500);
+                $className = __NAMESPACE__ . '\\' . $params['driver'];
+                /* echo $className; die; */
+
+                if (!class_exists($className)) {
+                    throw new Exception("Could not find the driver: {$className}", 500);
                 }
 
-                self::$_instance = new $params['driver']($params);
+                self::$_instance = new $className($params);
             }
 
             return self::$_instance;

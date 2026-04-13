@@ -10,6 +10,28 @@
     error_reporting(E_ALL);
     ini_set('log_errors', 1);
 
+    spl_autoload_register(function ($class) {
+        $prefix = 'App\\'; // On écoute tout ce qui commence par App\
+        $base_dir = __DIR__ . '/'; // La racine est le point de départ
+
+        $len = strlen($prefix);
+        if (strncmp($prefix, $class, $len) !== 0) {
+            return;
+        }
+
+        $relative_class = substr($class, $len);
+
+        // On remplace les \ par des / et on cherche le fichier
+        // Ex: App\Db\Sqlite -> ./db/Sqlite.php
+        // Ex: App\Utils -> ./Utils.php
+        $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
+
+        if (file_exists($file)) {
+            require $file;
+        }
+    });
+
+
     if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
         http_response_code(405); // Method Not Allowed
         echo json_encode(["error" => "Seules les requêtes GET sont autorisées"]);
@@ -39,10 +61,8 @@
     }
 
     if($is_valid){
-        require_once __DIR__.'/db/FactoryDB.php';
-        require_once __DIR__.'/helpers.php';
 
-        $get = normalize($_GET);
+        $get = \App\Helpers::normalize($_GET);
         $results = [];
 
         $context = ['rows' => ''];
@@ -61,7 +81,7 @@
             'path' => __DIR__.'/data/chuck.db',
         ];
         try{
-            $db = FactoryDB::initialize($params_db);
+            $db = \App\Db\FactoryDB::initialize($params_db);
 
             $sql = "SELECT COUNT(*) as nb FROM posts";
             $max_rows_in_db = current($db->query($sql)->fetch())->nb;

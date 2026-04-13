@@ -1,4 +1,11 @@
 <?php
+    namespace App\Db;
+
+
+    use PDO;
+    use Exception;
+
+
     class DB{
         private $pdo = null;
         private $query = null;

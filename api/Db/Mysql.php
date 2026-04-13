@@ -1,5 +1,6 @@
 <?php
-    require_once './db/DB.php';
+    namespace App\Db;
+
 
     class Mysql extends DB{
         public function __construct($params){
